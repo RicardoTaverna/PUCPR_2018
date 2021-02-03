@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><!--
+
+JOGO DA VELHA
+Um exercício de busca competitiva usando algoritmo MiniMax e Poda Alfa-Beta
+
+--><head>
+<title>Jogo da Velha - Fundamentos de IA</title>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="board.css">
+
+<script src="tictacjs.js"></script>
+			
+</head>
+
+<body onload="inicializa();">
+
+<div id="container">
+  
+  <h1>Jogo da Velha - Fundamentos de IA</h1></br>
+  <h2>Um exercicio de busca competitiva usando algoritmo MiniMax ou Poda Alfa-Beta</h2>
+  <div id="quadroesq">
+    <table id="tabuleiro">
+    <tbody><tr>
+      <td id="p00" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p01" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p02" onclick="jogaHumano(this);">&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="p10" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p11" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p12" onclick="jogaHumano(this);">&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="p20" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p21" onclick="jogaHumano(this);">&nbsp;</td>
+      <td id="p22" onclick="jogaHumano(this);">&nbsp;</td>
+    </tr>
+    </tbody></table>
+  </div>
+
+  <div id="quadrodir">
+    <br>
+    <form>
+      X = CPU<br>
+      O = Humano<br><br>
+      Clique em uma posição do tabuleiro para jogar<br><br><br>
+      <input type="button" class="btn btn-secondary" id="CPUcomeca" value=" CPU comeca " onclick="jogaCPU();">
+      <input type="button" class="btn btn-secondary" id="reiniciar" value=" Jogar novamente " onclick="inicializa();" style="display: none;">
+    </form>
+
+    <br><br>
+    <div id="info" style="display: none;"></div>
+  </div>
+  
+  <div id="infoFilhos" class="clear" style="display: none;"><br></div>
+  <div id="quadroFilhos" class="clear"></div>
+  <div id="quadroNetos0" class="clear" style="display: none;"></div>
+  <div id="quadroNetos1" class="clear" style="display: none;"></div>
+  <div id="quadroNetos2" class="clear" style="display: none;"></div>
+  <div id="quadroNetos3" class="clear" style="display: none;"></div>
+  <div id="quadroNetos4" class="clear" style="display: none;"></div>
+  <div id="quadroNetos5" class="clear" style="display: none;"></div>
+  <div id="quadroNetos6" class="clear" style="display: none;"></div>
+  <div id="quadroNetos7" class="clear" style="display: none;"></div>
+  <div id="quadroNetos8" class="clear" style="display: none;"></div>
+</div>
+
+
+
+ <!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

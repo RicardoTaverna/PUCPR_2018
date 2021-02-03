@@ -1,0 +1,99 @@
+/* livraria-Logico: */
+
+CREATE TABLE LIVRO (
+    nome varchar(50),
+    codigo varchar(50) PRIMARY KEY,
+    lingua varchar(50),
+    ano date
+);
+
+CREATE TABLE AUTOR (
+    nome varchar(50) PRIMARY KEY,
+    data_nasc date,
+    nota varchar(50)
+);
+
+CREATE TABLE EDICAO (
+    qtde varchar(50),
+    pagina varchar(50),
+    ISBN varchar(50) PRIMARY KEY,
+    preco varchar(50),
+    ano date
+);
+
+CREATE TABLE EDITORA (
+    telefone varchar(50),
+    endereco varchar(50),
+    nome varchar(50) PRIMARY KEY
+);
+
+CREATE TABLE VENDA (
+    nota_fiscal varchar(50),
+    cliente varchar(50),
+    cpf_cliente varchar(50),
+    vendedor varchar(50),
+    cod_vendedor varchar(50),
+    PRIMARY KEY (nota_fiscal, cpf_cliente, cod_vendedor)
+);
+
+CREATE TABLE ESCREVE (
+    FK_LIVRO_codigo varchar(50),
+    FK_AUTOR_nome varchar(50)
+);
+
+CREATE TABLE CADASTRO (
+    FK_LIVRO_codigo varchar(50),
+    FK_EDICAO_ISBN varchar(50)
+);
+
+CREATE TABLE CONTEM (
+    FK_EDICAO_ISBN varchar(50),
+    FK_EDITORA_nome varchar(50)
+);
+
+CREATE TABLE OCORRE (
+    FK_VENDA_nota_fiscal varchar(50),
+    FK_VENDA_cpf_cliente varchar(50),
+    FK_VENDA_cod_vendedor varchar(50),
+    FK_LIVRO_codigo varchar(50)
+);
+ 
+ALTER TABLE ESCREVE ADD CONSTRAINT FK_ESCREVE_0
+    FOREIGN KEY (FK_LIVRO_codigo)
+    REFERENCES LIVRO (codigo)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE ESCREVE ADD CONSTRAINT FK_ESCREVE_1
+    FOREIGN KEY (FK_AUTOR_nome)
+    REFERENCES AUTOR (nome)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE CADASTRO ADD CONSTRAINT FK_CADASTRO_0
+    FOREIGN KEY (FK_LIVRO_codigo)
+    REFERENCES LIVRO (codigo)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE CADASTRO ADD CONSTRAINT FK_CADASTRO_1
+    FOREIGN KEY (FK_EDICAO_ISBN)
+    REFERENCES EDICAO (ISBN)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE CONTEM ADD CONSTRAINT FK_CONTEM_0
+    FOREIGN KEY (FK_EDICAO_ISBN)
+    REFERENCES EDICAO (ISBN)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE CONTEM ADD CONSTRAINT FK_CONTEM_1
+    FOREIGN KEY (FK_EDITORA_nome)
+    REFERENCES EDITORA (nome)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE OCORRE ADD CONSTRAINT FK_OCORRE_0
+    FOREIGN KEY (FK_VENDA_nota_fiscal, FK_VENDA_cpf_cliente, FK_VENDA_cod_vendedor)
+    REFERENCES VENDA (nota_fiscal, cpf_cliente, cod_vendedor)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE OCORRE ADD CONSTRAINT FK_OCORRE_1
+    FOREIGN KEY (FK_LIVRO_codigo)
+    REFERENCES LIVRO (codigo)
+    ON DELETE SET NULL ON UPDATE CASCADE;

@@ -1,0 +1,90 @@
+01 - Como surgiram os banco de dados?
+R: A partir da necessidade de digitalizar e armazenar com segurança
+o que era armazenado em fichas e cadastros no inicio dos anos 50. Com
+inicio da computação, no meio universitário e militar nos anos 60 na a IBM
+junto ao departamento de segurança dos Estados Unidos, entre outros
+programadores e desenvolvedores.
+
+02 - O que é um índice?
+R: codificação única dada em um banco para o acesso direto a um arquivo nesse mesmo banco.
+
+
+03 - Qual é a diferença entre arquivo sequencial e acesso direto?
+R:Arquivo sequencial tem que ser acessado sequencialmento até o ponto necessário
+o acesso direto em contra partida, acessa diretamente o arquivo pelo seu índice
+
+
+04 - Quais os principais modelos de dados?
+R: Modelo Hierárquico, Modelo em Rede, Modelo Relacional, Modelo Não Relacional
+Modelos Baseados em Documentos, Modelos Orientados a Objetos.
+
+
+05 - O que é o modelo relacional e quando surgiu?
+R: Surgiu na década de 70 apartir da necessidade do relacionamento entre tabelas
+no mesmo banco.
+
+
+06 - Cite exemplos de banco de dados.
+R: OracleDB, IBMDB2, SQLServer, MySQL, MariaDB, PostgreeSQL, LiteQL
+
+
+
+
+
+Pagina 76 Bd01
+
+01 - Todas os objetos são entidades?
+R: Não, muitos dos objetos que aparecem nas fotos são considerados como atributos e outros pode ser considerados
+até mesmo como relações, dependendo do contexto e da abstração.
+
+02 - Quais são as relações?
+R: Depende da abstração que for feita, no exemplo de ter as Entidades (CLIENTE, FUNCIONARIO, PEDIDO, SALAGADOS
+BEBIDAS, VENDA, PAGAMENTO), podemos ter as relações (NUM_SOLICITACAO, COD_PEDIDO, COD_VENDA)
+
+03 - O que faz parte do Modelo?
+R: As Entidades (CLIENTE, FUNCIONARIO, PEDIDO, SALAGADOS, BEBIDAS, VENDA, PAGAMENTO),
+Relações (NUM_SOLICITACAO, COD_PEDIDO, COD_VENDA), e os Atributos (produtos detalhados nas fotos)
+
+04 - O que seria interesante saber sobre esse contexto?
+R: O modelo de negocio, se é um padaria, confeitaria etc, para saber como realizar a abstração e melhor
+modelagem do bando
+
+
+BD03
+
+01 - o que é dependência funcional?  e dependência transitiva? e dependência multivalorada?
+R: Uma dependência funcional é um relacionamento entre dois ou mais atributos de forma que o valor de um
+atributo identifique o valor para cada um dos outros atributos
+
+
+02 - o que é normalização e qual é o objetivo desse processo?
+R: Normalização é o nome dado ao processo de tradução de um esquema de dados qualquer para um modelo relacional.
+Objetiva-se esse processo quando há a necessidade de manutenção, migração para outro DB ou integração entre
+DBs em sistemas legados.
+
+
+03 - em que situações a engenharia reversa é necessária?
+R: Essa abstração em geral se dá mapeando as propriedades deste banco e gerando seu modelo lógico
+ou físico para melhor entendimento.
+
+
+04 - explique cada uma das formas normais e apresente um exemplo.
+R:
+1FN - Toda relação deve ter uma chave primária e deve-se garantir que todo atributo seja atômico.
+Atributos compostos devem ser separados. Por exemplo, um atributo Endereço deve ser
+subdividido em seus componentes: Logradouro, Número, Complemento, Bairro, Cidade, Estado e CEP.
+Além disso, atributos multivalorados devem ser discriminados separadamente ou separados em uma outra relação.
+Por exemplo, um atributo multivalorado Telefones poderia ser separado em Telefone Residencial, Telefone
+Comercial e Telefone Celular ou, ainda, ser convertido em outra relação que pudesse representar um número
+indeterminado de telefones.
+
+2FN - Toda relação deve estar na 1FN e devem-se eliminar dependências funcionais parciais, ou seja,
+todo atributo não chave deve ser totalmente dependente da chave primária. Como exemplo, uma relação que contenha
+os atributos Código da Obra, Código do Fornecedor, Nome do Fornecedor e Preço de Venda, Considerando que a
+chave primária é composta pelos atributos Código da Obra e Código do Fornecedor, não está na Segunda Forma Normal,
+uma vez que o Nome do Fornecedor depende apenas do Código do Fornecedor, e não do Código da Obra.
+
+3FN - Toda relação deve estar na 2FN e devem-se eliminar dependências funcionais transitivas, ou seja,
+todo atributo não chave deve ser mutuamente independente. Como exemplo, uma relação que contenha os atributos
+Matrícula do Funcionário (atributo chave), Nome do Funcionário, Código do Departamento e Nome do Departamento
+não está na Terceira Forma Normal.

@@ -1,0 +1,54 @@
+body {
+	font: 13px Verdana;
+}
+h1 {
+	margin-bottom: 0;
+	font: 29px "arial black";
+}
+h2 {
+	margin-top: 0;
+	margin-bottom: 50px;
+	font: bold italic 18px arial;
+}
+#container {
+  width: 780px;
+  margin: auto;
+}
+#quadroesq {
+  float: left;
+  width: 400px;
+}
+#quadrodir {
+  float: left;
+  width: 360px;
+}
+#tabuleiro {
+	border-collapse: collapse;
+}
+#tabuleiro td {
+	width: 100px;
+	height: 100px;
+	font: 60px "arial";
+	text-align: center;
+	vertical-align: center;
+	color: #000;
+}
+#p00,#p01,#p02, #p10,#p11,#p12 {
+	border-bottom: 4px solid #000;
+}
+#p00,#p01, #p10,#p11, #p20,#p21 {
+	border-right: 4px solid #000;
+}
+.clear {
+	clear: both;
+}
+.bloco {
+	float: left;
+	width: 76px;
+	background: url(fundo.png) no-repeat 10px 12px;
+	padding-left: 8px;
+	text-align: center;
+}
+.ativo {
+	background-color: #eee;
+}
